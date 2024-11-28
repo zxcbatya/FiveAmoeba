@@ -1,0 +1,464 @@
+/* Общие стили страницы */
+body {
+    background-color: #f5f6fa;
+    color: #2c3e50;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Стили для главного меню */
+.main-nav {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    gap:20px;
+    max-width: 2000px;
+    margin: auto;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo {
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 15px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.nav-menu a:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-menu a.active {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Заголовок страницы */
+.page-title {
+    text-align: center;
+    color: #2c3e50;
+    margin: 40px 0;
+    font-size: 2.5em;
+    font-weight: 700;
+    position: relative;
+}
+
+.page-title:after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(to right, #3498db, #2980b9);
+    margin: 15px auto;
+    border-radius: 2px;
+}
+
+/* Стили для страницы турниров */
+.tournament-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.tournament-card {
+    background: var(--background-white);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.tournament-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.tournament-info {
+    flex: 1;
+    margin-bottom: 1rem;
+}
+
+.tournament-header {
+    margin-bottom: 1rem;
+    padding: 1.25rem;
+    background: linear-gradient(135deg, var(--primary-color), #0056b3);
+    color: white;
+    position: relative;
+    border-radius: 1vh;
+}
+
+.tournament-name {
+    font-size: 1.25rem;
+    color: white;
+    margin: 0 0 0.5rem 0;
+    font-weight: 600;
+}
+
+.tournament-description {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.tournament-meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+}
+
+.meta-item i {
+    color: var(--primary-color);
+    font-size: 1rem;
+}
+
+.tournament-status {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.tournament-status.upcoming {
+    background: var(--success-light);
+    color: var(--success-dark);
+}
+
+.tournament-status.ongoing {
+    background: var(--warning-light);
+    color: var(--warning-dark);
+}
+
+.tournament-status.completed {
+    background: var(--secondary-light);
+    color: var(--secondary-dark);
+}
+
+.tournament-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: auto;
+    flex-wrap: wrap;
+}
+
+.tournament-actions .btn {
+
+    min-width: 120px;
+    text-align: center;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.tournament-actions .btn i {
+    font-size: 1rem;
+}
+
+/* Кнопки фильтров */
+.tournaments-filters {
+    display: flex;
+    gap: 1rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+}
+
+.btn-filter {
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px;
+    border: 1px solid var(--primary-color);
+    background: transparent;
+    color: var(--primary-color);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-filter:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+.btn-filter.active {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* Сообщение об отсутствии турниров */
+.no-tournaments {
+    text-align: center;
+    padding: 3rem;
+    background: var(--background-white);
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+}
+
+.no-tournaments i {
+    font-size: 3rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+.no-tournaments p {
+    color: var(--text-secondary);
+    margin: 0.5rem 0;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .tournament-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .tournaments-filters {
+        justify-content: center;
+    }
+    
+    .tournament-meta {
+        grid-template-columns: 1fr;
+    }
+
+    .tournament-actions {
+        flex-direction: column;
+    }
+
+    .tournament-actions .btn {
+        width: 100%;
+    }
+}
+
+/* Стили для кнопок */
+.btn {
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn i {
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #0056b3;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: var(--background-white);
+    color: var(--text-primary);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.btn-secondary:hover {
+    background: var(--background-light);
+    transform: translateY(-2px);
+}
+
+.btn-success {
+    background: var(--success-color);
+    color: white;
+}
+
+.btn-success:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+/* Форма создания турнира */
+.tournament-form {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.tournament-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.tournament-form .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.tournament-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+    font-weight: 500;
+}
+
+.tournament-form input[type="text"],
+.tournament-form input[type="number"],
+.tournament-form input[type="date"],
+.tournament-form input[type="time"],
+.tournament-form select,
+.tournament-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    font-size: 14px;
+    color: #2c3e50;
+    transition: all 0.3s ease;
+    background-color: white;
+}
+
+.tournament-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.tournament-form input:focus,
+.tournament-form select:focus,
+.tournament-form textarea:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.tournament-form select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%232c3e50' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    padding-right: 40px;
+}
+
+.tournament-form .form-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e9ecef;
+}
+
+/* Сообщения об ошибках и успехе */
+.alert {
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.alert i {
+    font-size: 1.25rem;
+}
+
+.alert-error {
+    background-color: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fca5a5;
+}
+
+.alert-success {
+    background-color: #d1fae5;
+    color: #065f46;
+    border: 1px solid #6ee7b7;
+}
+
+/* Адаптивность формы */
+@media (max-width: 768px) {
+    .tournament-form {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+
+    .tournament-form .form-row {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .tournament-form .form-actions {
+        flex-direction: column;
+    }
+
+    .tournament-form .btn {
+        width: 100%;
+    }
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
